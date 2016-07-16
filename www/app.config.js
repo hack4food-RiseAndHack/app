@@ -4,6 +4,7 @@ angular.module('myApp', [
     'myApp.login',
     'myApp.merchant',
     'myApp.component.customerLogin',
+    'myApp.merchantLogin',
     'ngCordova'
 ])
 
@@ -30,6 +31,13 @@ angular.module('myApp', [
             templateUrl: 'login/login.view.html',
             controller: 'LoginController',
             controllerAs: 'login'
+        })
+
+        .state('merchant-login', {
+            url: '/merchant',
+            templateUrl: 'merchant/merchant-login/merchant-login.view.html',
+            controller: 'MerchantLoginController',
+            controllerAs: 'merchant'
         })
 
         .state('client', {

@@ -10,21 +10,10 @@
         var vm = this;
         var requestData;
 
-        vm.login = login;
+        vm.loginMerchant = loginMerchant;
         
-        function login() {
-            requestData = {
-                email: vm.email,
-                password: vm.password
-            };
-
-            if (validation()) {
-                LoginService.login(requestData).then(function (val) {
-                    if (val.token){
-                        $location.path('/merchant');
-                    }
-                });
-            }
+        function loginMerchant() {
+            $location.path('/merchant');
         }
 
         function validation() {
