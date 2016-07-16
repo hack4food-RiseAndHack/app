@@ -48,6 +48,13 @@ angular.module('myApp', [
             controllerAs: 'register'
         })
 
+        .state('merchant-main', {
+            url: '/merchant/main',
+            templateUrl: 'merchant/merchant-main/merchant-main.view.html',
+            controller: 'MerchantMain',
+            controllerAs: 'main'
+        })
+
         .state('client', {
             url: '/client',
             templateUrl: 'client/views/menu.html',

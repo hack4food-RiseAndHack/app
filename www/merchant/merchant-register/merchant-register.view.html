@@ -2,14 +2,18 @@
     <button ng-click="register.back()" class="btn btn-primary navigation-button-padding"><</button>
     <ion-content class="login">
 
-
         <h3>Registration</h3>
         <form>
             <input ng-model="register.username" type="text" placeholder=" Username" value="">
             <input ng-model="register.email" type="email" placeholder=" Email" value="">
             <input ng-model="register.password" type="text" placeholder=" Password" value="">
+            <input ng-model="register.confirmPassword" type="text" placeholder=" Confirm Password" value="">
             <button ng-click="register.register()" class="btn btn-primary btn-block btn-large button-margin">Register</button>
         </form>
+
+        <div class="error-box" ng-show="register.showErrorMessage">
+            <b>Whoops! </b>{{register.errorMessage}}
+        </div>
 
     </ion-content>
 

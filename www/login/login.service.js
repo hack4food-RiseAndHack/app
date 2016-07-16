@@ -4,23 +4,21 @@
         .module('myApp')
         .factory("LoginService", LoginService);
 
-    LoginService.$inject = ['$httpParamSerializer', 'User'];
+    LoginService.$inject = ['User'];
 
-    function LoginService($httpParamSerializer, User) {
+    function LoginService(User) {
         var service = {
-            login: Login
+            login: Login,
+            register: Registration
         };
         return service;
 
         function Login(requestData) {
-            requestData = $httpParamSerializer({
-                email: requestData.email,
-                password: requestData.password
-            });
-            
-            return User.login(requestData).then(function (val) {
-                return val;
-            });
+            return User.login(requestData);
+        }
+
+        function Registration(requestData) {
+            return User.register(requestData);
         }
     }
 })();
