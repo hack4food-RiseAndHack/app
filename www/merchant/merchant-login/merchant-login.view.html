@@ -1,12 +1,15 @@
 <ion-modal-view class="login-bg">
     <button ng-click="merchant.back()" class="btn btn-primary navigation-button-padding"><</button>
+    <!--<div ng-show="merchant.loader" class="loader"></div>-->
     <ion-content class="login">
-
 
         <h3>Merchant login</h3>
         <form>
             <input ng-model="merchant.username" type="text" placeholder=" Username" value="">
             <input ng-model="merchant.password" type="password" placeholder=" Password" value="">
+            <div class="error-box" ng-show="merchant.showErrorMessage">
+                <b>Whoops! </b>{{merchant.errorMessage}}
+            </div>
             <button ng-click="merchant.login()" class="btn btn-primary btn-block btn-large button-margin">Login</button>
             <button ng-click="merchant.register()" class="btn btn-primary btn-block btn-large button-margin">Register</button>
             <button ng-click="merchant.paysera()" class="btn btn-primary btn-block btn-large button-margin">
