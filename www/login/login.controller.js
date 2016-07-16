@@ -18,10 +18,15 @@
                 password: vm.password
             };
 
-            if (requestData)
+            if (validation()) {
                 LoginService.login(requestData).then(function (val) {
 
                 });
+            }
+        }
+
+        function validation() {
+            return !(!vm.email || !vm.password);
         }
     }
 })();
