@@ -6,13 +6,15 @@
      * # MenuFeaturedCtrl
      * Controller of the yoobiApp
      */
-    function ClientMenuPageCtrl() {
+    function ClientMenuPageCtrl($state) {
 
-
+        this.state = $state.current.name;
+        console.log("state", this.state);
     };
     angular.module('myApp')
-        .controller('ClientMenuPageCtrl',
-            ClientMenuPageCtrl);
+        .controller('ClientMenuPageCtrl', [
+            '$state',
+            ClientMenuPageCtrl]);
 })();
 
 
