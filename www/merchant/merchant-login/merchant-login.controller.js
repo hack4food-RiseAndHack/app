@@ -11,6 +11,9 @@
         var requestData;
 
         vm.login = login;
+        vm.register = register;
+        vm.back = back;
+        vm.paysera = paysera;
 
         function login() {
             requestData = {
@@ -25,6 +28,18 @@
                     }
                 });
             }
+        }
+
+        function register() {
+            $location.path('/merchant/register');
+        }
+
+        function paysera() {
+
+        }
+
+        function back() {
+            $location.path('/login');
         }
 
         function validation() {

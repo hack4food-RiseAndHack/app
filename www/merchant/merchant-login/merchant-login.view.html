@@ -1,0 +1,20 @@
+<ion-modal-view class="login-bg">
+    <button ng-click="merchant.back()" class="btn btn-primary navigation-button-padding"><</button>
+    <ion-content class="login">
+
+
+        <h3>Merchant login</h3>
+        <form>
+            <input ng-model="merchant.username" type="text" placeholder=" Username" value="">
+            <input ng-model="merchant.password" type="text" placeholder=" Password" value="">
+            <button ng-click="merchant.login()" class="btn btn-primary btn-block btn-large button-margin">Login</button>
+            <button ng-click="merchant.register()" class="btn btn-primary btn-block btn-large button-margin">Register</button>
+            <button ng-click="merchant.paysera()" class="btn btn-primary btn-block btn-large button-margin">
+                <img src="lib/img/paysera_logo.png">
+            </button>
+        </form>
+
+    </ion-content>
+
+</ion-modal-view>
+
