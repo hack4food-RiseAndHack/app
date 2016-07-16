@@ -1,6 +1,6 @@
 <ion-view view-title="qr code">
   <ion-content>
-    <qrcode text="{{test | json}}">
-	</qrcode>
+  {{scanInfo | json}}
+    <a ng-click="scanBarcode()" > Scan </a>
   </ion-content>
 </ion-view>
