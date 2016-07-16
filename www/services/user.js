@@ -13,7 +13,7 @@
 
         function Login(requestData) {
             return $http({
-                method: 'GET',
+                method: 'POST',
                 url: 'localhost:5000/session?' + requestData
             }).then(function (response) {
                 return response;
