@@ -19,12 +19,18 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="lib/qrcode.min.js"></script>
-    <script src="configs/app.js"></script>
-    <script src="controllers/controllers.js"></script>
+      <script src="app.config.js"></script>
+      <script src="app.controller.js"></script>
+
+      <script src="Main/main.controller.js"></script>
+
+      <script src="merchant/merchant-main/merchant.controller.js"></script>
+
+      <script src="components/customer-login/customer-login.component.js"></script>
+
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="myApp">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
