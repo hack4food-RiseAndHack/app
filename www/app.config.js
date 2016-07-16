@@ -3,7 +3,8 @@ angular.module('myApp', [
     'myApp.controller',
     'myApp.login',
     'myApp.merchant',
-    'myApp.component.customerLogin'
+    'myApp.component.customerLogin',
+    'ngCordova'
 ])
 
 .run(function($ionicPlatform) {
@@ -25,11 +26,38 @@ angular.module('myApp', [
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('main', {
-        url: '/login',
-        templateUrl: 'login/login.view.html',
-        controller: 'LoginController',
-        controllerAs: 'login'
-    });
+            url: '/login',
+            templateUrl: 'login/login.view.html',
+            controller: 'LoginController',
+            controllerAs: 'login'
+        })
+
+        .state('client', {
+            url: '/client',
+            templateUrl: 'client/views/menu.html',
+            controller: 'ClientMenuPageCtrl',
+            controllerAs: 'vm'
+        })
+
+        .state('client.payment', {
+            url: '/payment',
+            views: {
+                'menuContent': {
+                    templateUrl: 'client/views/payment.html',
+                    controller: 'paymentCtrl',
+                    controllerAs: 'payment'
+                }
+            }
+        })
+        .state('client.account', {
+            url: '/account',
+            views: {
+                'menuContent': {
+                    templateUrl: 'client/views/account.html',
+                    controller: 'clientAccountCtrl'
+                }
+            }
+        });
 
     $urlRouterProvider.otherwise('/login');
 });
