@@ -1,7 +1,7 @@
 angular.module('myApp', [
     'ionic',
     'myApp.controller',
-    'myApp.main',
+    'myApp.login',
     'myApp.merchant',
     'myApp.component.customerLogin'
 ])
@@ -25,11 +25,11 @@ angular.module('myApp', [
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('main', {
-        url: '/main',
-        templateUrl: 'Main/main.view.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        url: '/login',
+        templateUrl: 'login/login.view.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
     });
 
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/login');
 });
