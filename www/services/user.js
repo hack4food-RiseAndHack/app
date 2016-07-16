@@ -12,14 +12,12 @@
         return service;
 
         function Login(requestData) {
-            /*
             return $http({
-                method: 'POST',
-                withCredentials: true,
-                url: 'server' + "/login" + requestData
+                method: 'GET',
+                url: '193.219.91.103:5000/session?' + requestData
             }).then(function (response) {
                 return response;
-            })*/
+            })
         }
     }
 })();

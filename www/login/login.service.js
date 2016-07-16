@@ -18,9 +18,8 @@
                 password: requestData.password
             });
             
-            console.log(requestData);
             User.login(requestData).then(function (val) {
-
+                console.log(val);
             });
         }
     }
