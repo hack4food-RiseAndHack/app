@@ -17,15 +17,15 @@
 
         function login() {
             requestData = {
-                email: vm.email,
+                username: vm.username,
                 password: vm.password
             };
 
             if (validation()) {
                 LoginService.login(requestData).then(function (val) {
-                    if (val.token){
-                        $location.path('/merchant');
-                    }
+                    console.log(val);
+                }).catch(function (val) {
+                    console.log(val);
                 });
             }
         }
@@ -43,7 +43,7 @@
         }
 
         function validation() {
-            return !(!vm.email || !vm.password);
+            return !(!vm.username || !vm.password);
         }
     }
 })();

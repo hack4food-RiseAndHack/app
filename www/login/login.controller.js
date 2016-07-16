@@ -4,20 +4,15 @@
         .module('myApp.login', ['ionic'])
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService', '$location'];
+    LoginController.$inject = ['$location'];
 
-    function LoginController(LoginService, $location) {
+    function LoginController($location) {
         var vm = this;
-        var requestData;
 
         vm.loginMerchant = loginMerchant;
         
         function loginMerchant() {
             $location.path('/merchant');
-        }
-
-        function validation() {
-            return !(!vm.email || !vm.password);
         }
     }
 })();
