@@ -14,9 +14,9 @@
         function Login(requestData) {
             return $http({
                 method: 'POST',
-                url: 'localhost:5000/session?' + requestData
+                url: 'http://193.219.91.103:5000/session?' + requestData
             }).then(function (response) {
-                return response;
+                return response.data;
             })
         }
     }

@@ -4,9 +4,9 @@
         .module('myApp.login', ['ionic'])
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['LoginService'];
+    LoginController.$inject = ['LoginService', '$location'];
 
-    function LoginController(LoginService) {
+    function LoginController(LoginService, $location) {
         var vm = this;
         var requestData;
 
@@ -20,7 +20,9 @@
 
             if (validation()) {
                 LoginService.login(requestData).then(function (val) {
-
+                    if (val.token){
+                        $location.path('/merchant');
+                    }
                 });
             }
         }
