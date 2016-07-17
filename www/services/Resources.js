@@ -11,16 +11,16 @@
             checkUser: checkUser,
             setMerchantUserSession: setMerchantUserSession,
             getMerchantUserSession: getMerchantUserSession,
-            destroyMerchantUserSession: destroyMerchantUserSession,
             setClientUserSession: setClientUserSession,
             getClientUserSession: getClientUserSession,
-            destroyClientUserSession: destroyClientUserSession,
             setUserData: setUserData,
             getUserData: getUserData
         };
         return resources;
 
-        var userData = null;
+        var userData = null,
+            merchantUserSession = null,
+            clientUserSession = null;
 
         function setUserData(val) {userData = val;}
         function getUserData() {return userData;}
@@ -32,6 +32,7 @@
         function setClientUserSession(val) {window.localStorage.setItem('merchant', val);}
         function getClientUserSession() {return window.localStorage.getItem('merchant');}
         function destroyClientUserSession() {window.localStorage.removeItem('merchant');}
+
 
         function checkUser() {
 
