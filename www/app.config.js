@@ -7,8 +7,7 @@ angular.module('myApp', [
     'myApp.merchantLogin',
     'myApp.merchantRegister',
     'myApp.MerchantInfo',
-    'ngCordova',
-    'ngCookies'
+    'ngCordova'
 ])
 
 .run(function($ionicPlatform) {

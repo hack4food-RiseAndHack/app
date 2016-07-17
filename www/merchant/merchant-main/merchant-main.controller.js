@@ -27,6 +27,7 @@
                         User.getUserData(Resources.getMerchantUserSession()).then(function (val) {
                             Resources.setUserData(val);
                             if (val.accountNumber){
+                                vm.accountNumber = val.accountNumber;
                                 vm.accountNumberSet = true;
                             }
                         })
@@ -40,7 +41,19 @@
         }
 
         function createPayment() {
-
+            if (vm.price){
+                var requestData = ({
+                    price: vm.price,
+                    accountNumber: vm.accountNumber,
+                    token: Resources.getMerchantUserSession()
+                });
+                
+                User.createTransaction(requestData).then(function (val) {
+                    if (val.success){
+                        //TODO QR GENERATION
+                    }
+                })
+            }
         }
 
         function logout() {

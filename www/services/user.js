@@ -11,7 +11,8 @@
             register: Register,
             checkUser: CheckUser,
             getUserData: getUserData,
-            updateUser: updateUser
+            updateUser: updateUser,
+            createTransaction: CreateTransaction
         };
         return service;
 
@@ -66,6 +67,21 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function CreateTransaction(requestData) {
+            var token = $httpParamSerializer({
+                token: requestData.token
+            });
+            requestData = JSON.stringify({
+                accountNumber: requestData.accountNumber,
+                price: requestData.price
+            });
+
+            return $http.post('http://193.219.91.103:5000/open?' + token, requestData)
+                .then(function (response) {
+                    return response.data;
+                })
         }
     }
 })();
