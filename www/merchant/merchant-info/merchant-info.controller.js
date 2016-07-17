@@ -14,7 +14,7 @@
         vm.updateUser = updateUser;
 
         function checkUser() {
-            if (typeof Resources.getMerchantUserSession() == 'undefined') {
+            if (Resources.getMerchantUserSession() == null) {
                 $location.path('/login');
                 $window.location.reload();
             } else {
