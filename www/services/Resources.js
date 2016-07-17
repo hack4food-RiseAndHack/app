@@ -25,13 +25,13 @@
         function setUserData(val) {userData = val;}
         function getUserData() {return userData;}
 
-        function setMerchantUserSession(val) {$cookies.put('merchant', val);}
-        function getMerchantUserSession() {return $cookies.get('merchant');}
-        function destroyMerchantUserSession() {$cookies.remove('merchant');}
+        function setMerchantUserSession(val) { window.localStorage.setItem('merchant', val);}
+        function getMerchantUserSession() {return window.localStorage.getItem('merchant');}
+        function destroyMerchantUserSession() {window.localStorage.removeItem('merchant');}
 
-        function setClientUserSession(val) {$cookies.put('client', val);}
-        function getClientUserSession() {return $cookies.get('client');}
-        function destroyClientUserSession() {$cookies.remove('client');}
+        function setClientUserSession(val) {window.localStorage.setItem('merchant', val);}
+        function getClientUserSession() {return window.localStorage.getItem('merchant');}
+        function destroyClientUserSession() {window.localStorage.removeItem('merchant');}
 
         function checkUser() {
 
