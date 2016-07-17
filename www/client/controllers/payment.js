@@ -2,14 +2,16 @@ function paymentCtrl($cordovaBarcodeScanner, $cordovaInAppBrowser) {
     var self = this;
     var config = {};
 
+    var token = "5olyLmwOzmOi0KG97IAlOsQ1aOjRI3PB";
+
     self.qrScanner = function() {
         $cordovaBarcodeScanner.scan().then(
-                function(data) {
-                    $http.post('/api/payment/', data, config).then(
-                        function(res) {
+            function(data) {
+                $http.get('http://localhost:5000/transaction/'+data.id+'?token='+token).then(
+                function(res) {
 
-                        },
-                        function(err) {
+                },
+                function(err) {
 
                 })
             },
@@ -30,7 +32,7 @@ function paymentCtrl($cordovaBarcodeScanner, $cordovaInAppBrowser) {
             clearcache: 'yes',
             toolbar: 'no'
         };
-        $cordovaInAppBrowser.open('https://sandbox.paysera.com/frontend/oauth?response_type=code&client_id=wkVd93h2uS&redirect_uri=/#/client/account', '_blank', options)
+        $cordovaInAppBrowser.open('https://sandbox.paysera.com/frontend/oauth?response_type=code&client_id=39937&redirect_uri=/#/client/account', '_blank', options)
 
         .then(function(event) {
             alert("test");
