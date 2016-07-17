@@ -27,7 +27,8 @@
                         User.getUserData(Resources.getMerchantUserSession()).then(function (val) {
                             Resources.setUserData(val);
                             if (val.accountNumber){
-                                vm.accountNumber = true;
+                                vm.accountNumber = val.accountNumber;
+                                vm.accountNumberSet = true;
                             }
                         })
                     }
@@ -37,6 +38,9 @@
 
         function account() {
             $location.path('/merchant/info');
+        }
+
+        function createPayment() {
         }
 
         function logout() {
