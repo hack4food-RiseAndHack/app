@@ -4,9 +4,9 @@
         .module("myApp")
         .factory("Resources", Resources);
 
-    Resources.$inject = ['$cookies'];
+    Resources.$inject = [];
 
-    function Resources($cookies) {
+    function Resources() {
         var resources = {
             checkUser: checkUser,
             setMerchantUserSession: setMerchantUserSession,
@@ -14,13 +14,13 @@
             setClientUserSession: setClientUserSession,
             getClientUserSession: getClientUserSession,
             setUserData: setUserData,
-            getUserData: getUserData
+            getUserData: getUserData,
+            destroyMerchantUserSession: destroyMerchantUserSession,
+            destroyClientUserSession: destroyClientUserSession
         };
         return resources;
 
-        var userData = null,
-            merchantUserSession = null,
-            clientUserSession = null;
+        var userData = null;
 
         function setUserData(val) {userData = val;}
         function getUserData() {return userData;}

@@ -26,7 +26,8 @@
                         User.getUserData(Resources.getMerchantUserSession()).then(function (val) {
                             Resources.setUserData(val);
                             if (val.accountNumber){
-                                vm.accountNumber = true;
+                                vm.accountNumber = val.accountNumber;
+                                vm.accountNumberSet = true;
                             }
                         })
                     }
@@ -35,16 +36,14 @@
         }
 
         function updateUser() {
-            if (vm.accountNumber) {
-                var requestData = ({
-                    token: Resources.getMerchantUserSession(),
-                    accountNumber: vm.accountNumber
-                });
+            var requestData = ({
+                token: Resources.getMerchantUserSession(),
+                accountNumber: vm.accountNumber
+            });
 
-                User.updateUser(requestData).then(function (val) {
-                    console.log(val);
-                })
-            }
+            User.updateUser(requestData).then(function (val) {
+                Resources.getMerchantUserSession().accountNumber = vm.accountNumber;
+            })
         }
 
         function back() {

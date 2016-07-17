@@ -3,7 +3,7 @@
     <!--<div ng-show="merchant.loader" class="loader"></div>-->
     <ion-content class="content">
 
-        <div ng-hide="vm.accountNumber" class="text-center">
+        <div ng-hide="main.accountNumberSet" class="text-center">
             <h3>First time?</h3>
             <div class="panel">
                 <b>You have not added your account number</b>
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div ng-show="vm.accountNumber">
+        <div ng-show="main.accountNumberSet">
             <h3>Payment form</h3>
             <div class="panel">
                 <form>

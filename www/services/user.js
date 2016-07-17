@@ -36,7 +36,7 @@
 
             return $http.post('http://193.219.91.103:5000/register', requestData)
                 .then(function (response) {
-                    return response;
+                    return response.data;
                 });
         }
 
@@ -64,7 +64,7 @@
 
             return $http.post('http://193.219.91.103:5000/me?' + token, requestData)
                 .then(function (response) {
-                    return response;
+                    return response.data;
                 });
         }
     }

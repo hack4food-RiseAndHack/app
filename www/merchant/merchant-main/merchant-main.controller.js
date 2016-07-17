@@ -27,7 +27,7 @@
                         User.getUserData(Resources.getMerchantUserSession()).then(function (val) {
                             Resources.setUserData(val);
                             if (val.accountNumber){
-                                vm.accountNumber = true;
+                                vm.accountNumberSet = true;
                             }
                         })
                     }

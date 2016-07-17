@@ -22,7 +22,14 @@
                 };
 
                 LoginService.register(requestData).then(function (val) {
-
+                    if (val.success) {
+                        $location.path('/merchant');
+                        vm.showErrorMessage = false;
+                        errorMessage('');
+                    } else {
+                        errorMessage('User already exists');
+                        vm.showErrorMessage = true;
+                    }
                 })
             }
         }
