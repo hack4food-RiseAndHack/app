@@ -41,7 +41,7 @@ html { width: 100%; height:100%; overflow:hidden; }
 }
 .login h3 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
-input {
+.login input {
     width: 100%;
     margin-bottom: 10px;
     background: rgba(0,0,0,0.3);
@@ -59,7 +59,7 @@ input {
     -ms-transition: box-shadow .5s ease;
     transition: box-shadow .5s ease;
 }
-input:focus {
+.login input:focus {
     box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
     color: #fff;
 }
@@ -124,4 +124,44 @@ img{
     width: 60px;
     height: 60px;
     animation: spin 2s linear infinite;
+}
+
+.content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+    overflow: visible;
+}
+.content h3 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.panel{
+    background-color: #f1f2f3;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.panel input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 1);
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+    color: #000000;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+.panel input:focus {
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+    color: #000000;
 }

@@ -1,0 +1,31 @@
+<ion-modal-view class="login-bg" ng-init="main.checkUser()">
+    <button ng-click="main.logout()" class="btn btn-primary navigation-button-padding"><</button>
+    <!--<div ng-show="merchant.loader" class="loader"></div>-->
+    <ion-content class="content">
+
+        <div ng-hide="vm.accountNumber" class="text-center">
+            <h3>First time?</h3>
+            <div class="panel">
+                <b>You have not added your account number</b>
+                <button ng-click="main.account()" class="btn btn-primary btn-block btn-large button-margin">
+                    Add account number</button>
+            </div>
+        </div>
+
+        <div ng-show="vm.accountNumber">
+            <h3>Payment form</h3>
+            <div class="panel">
+                <form>
+                    <input ng-model="main.price" type="number" placeholder="Price">
+                    <button ng-click="main.createPayment()" class="btn btn-primary btn-block btn-large button-margin">
+                        Create payment</button>
+                </form>
+                <button ng-click="main.account()" class="btn btn-primary btn-block btn-large button-margin">
+                    Account</button>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-modal-view>
+

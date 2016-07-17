@@ -9,7 +9,8 @@
     function LoginService(User) {
         var service = {
             login: Login,
-            register: Registration
+            register: Registration,
+            checkUser: checkUser
         };
         return service;
 
@@ -19,6 +20,10 @@
 
         function Registration(requestData) {
             return User.register(requestData);
+        }
+
+        function checkUser(requestData) {
+            return User.checkUser(requestData);
         }
     }
 })();

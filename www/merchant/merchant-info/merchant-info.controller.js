@@ -1,19 +1,18 @@
 (function () {
 
     angular
-        .module('myApp.merchant', ['ionic'])
-        .controller('MerchantMain', MerchantMain);
+        .module('myApp.MerchantInfo', ['ionic'])
+        .controller('MerchantInfo', MerchantInfo);
 
-    MerchantMain.$inject = ['Resources', '$location', 'LoginService', '$window', 'User'];
+    MerchantInfo.$inject = ['Resources', '$location', 'LoginService', '$window', 'User'];
 
-    function MerchantMain(Resources, $location, LoginService, $window, User) {
+    function MerchantInfo(Resources, $location, LoginService, $window, User) {
         var vm = this;
-        
+
         vm.checkUser = checkUser;
-        vm.logout = logout;
-        vm.createPayment = createPayment;
-        vm.account = account;
-        
+        vm.back = back;
+        vm.updateUser = updateUser;
+
         function checkUser() {
             if (typeof Resources.getMerchantUserSession() == 'undefined') {
                 $location.path('/login');
@@ -35,18 +34,21 @@
             }
         }
 
-        function account() {
-            $location.path('/merchant/info');
+        function updateUser() {
+            if (vm.accountNumber) {
+                var requestData = ({
+                    token: Resources.getMerchantUserSession(),
+                    accountNumber: vm.accountNumber
+                });
+
+                User.updateUser(requestData).then(function (val) {
+                    console.log(val);
+                })
+            }
         }
 
-        function createPayment() {
-
-        }
-
-        function logout() {
-            Resources.destroyMerchantUserSession();
-            $location.path('/login');
-            $window.location.reload();
+        function back() {
+            $location.path('/merchant/main');
         }
     }
 })();
