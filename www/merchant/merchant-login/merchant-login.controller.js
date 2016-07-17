@@ -28,7 +28,7 @@
                     Resources.setMerchantUserSession(val.token);
                     $location.path('/merchant/main');
                     vm.showErrorMessage = false;
-                    vm.errorMessage = 'Bad credentials';
+                    vm.errorMessage = '';
                     vm.loader = false;
                 }).catch(function (val) {
                     vm.loader = false;

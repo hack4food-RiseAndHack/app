@@ -6,7 +6,9 @@ angular.module('myApp', [
     'myApp.component.customerLogin',
     'myApp.merchantLogin',
     'myApp.merchantRegister',
-    'ngCordova'
+    'myApp.MerchantInfo',
+    'ngCordova',
+    'ngCookies'
 ])
 
 .run(function($ionicPlatform) {
@@ -40,19 +42,23 @@ angular.module('myApp', [
             controller: 'MerchantLoginController',
             controllerAs: 'merchant'
         })
-
         .state('merchant-register', {
             url: '/merchant/register',
             templateUrl: 'merchant/merchant-register/merchant-register.view.html',
             controller: 'MerchantRegisterController',
             controllerAs: 'register'
         })
-
         .state('merchant-main', {
             url: '/merchant/main',
             templateUrl: 'merchant/merchant-main/merchant-main.view.html',
             controller: 'MerchantMain',
             controllerAs: 'main'
+        })
+        .state('merchant-info', {
+            url: '/merchant/info',
+            templateUrl: 'merchant/merchant-info/merchant-info.view.html',
+            controller: 'MerchantInfo',
+            controllerAs: 'info'
         })
 
         .state('client', {

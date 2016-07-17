@@ -3,12 +3,15 @@
     angular.module("myApp")
         .factory("User", User);
 
-    User.$inject = ['$http'];
+    User.$inject = ['$http', '$httpParamSerializer'];
 
-    function User($http) {
+    function User($http, $httpParamSerializer) {
         var service = {
             login: Login,
-            register: Register
+            register: Register,
+            checkUser: CheckUser,
+            getUserData: getUserData,
+            updateUser: updateUser
         };
         return service;
 
@@ -32,6 +35,34 @@
             });
 
             return $http.post('http://193.219.91.103:5000/register', requestData)
+                .then(function (response) {
+                    return response;
+                });
+        }
+
+        function CheckUser(requestData) {
+            return $http.get('http://193.219.91.103:5000/session?token=' + requestData)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+        
+        function getUserData(requestData) {
+            return $http.get('http://193.219.91.103:5000/me?token=' + requestData)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function updateUser(requestData) {
+            var token = $httpParamSerializer({
+                token: requestData.token
+            });
+            requestData = JSON.stringify({
+                accountNumber: requestData.accountNumber
+            });
+
+            return $http.post('http://193.219.91.103:5000/me?' + token, requestData)
                 .then(function (response) {
                     return response;
                 });
