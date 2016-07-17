@@ -15,7 +15,7 @@
         vm.account = account;
         
         function checkUser() {
-            if (Resources.getMerchantUserSession() == null) {
+            if (typeof Resources.getMerchantUserSession() == 'undefined') {
                 $location.path('/login');
                 $window.location.reload();
             } else {
@@ -44,7 +44,7 @@
         }
 
         function logout() {
-            Resources.setMerchantUserSession(null);
+            Resources.destroyMerchantUserSession();
             $location.path('/login');
             $window.location.reload();
         }

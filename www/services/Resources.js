@@ -33,7 +33,6 @@
         function getClientUserSession() {return window.localStorage.getItem('merchant');}
         function destroyClientUserSession() {window.localStorage.removeItem('merchant');}
 
-
         function checkUser() {
 
             if (getMerchantUserSession() == null && getClientUserSession() == null)
