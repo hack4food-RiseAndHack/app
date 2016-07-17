@@ -1,0 +1,20 @@
+<ion-modal-view class="login-bg">
+    <button ng-click="login.back()" class="btn btn-primary navigation-button-padding"><</button>
+    <!--<div ng-show="login.loader" class="loader"></div>-->
+    <ion-content class="login">
+
+        <h3>Customer login</h3>
+        <form>
+            <input ng-model="login.username" type="text" placeholder=" Username" value="">
+            <input ng-model="login.password" type="password" placeholder=" Password" value="">
+            <div class="error-box" ng-show="login.showErrorMessage">
+                <b>Whoops! </b>{{login.errorMessage}}
+            </div>
+            <button ng-click="login.paysera()" class="btn btn-primary btn-block btn-large button-margin">
+                <img src="lib/img/paysera_logo.png">
+            </button>
+        </form>
+
+    </ion-content>
+
+</ion-modal-view>

@@ -4,16 +4,23 @@ function paymentCtrl($cordovaBarcodeScanner, $cordovaInAppBrowser) {
 
     var token = "5olyLmwOzmOi0KG97IAlOsQ1aOjRI3PB";
 
+
+    self.transCheck = function(data, token) {
+        $http.get('http://localhost:5000/transaction/'+data.id+'?token='+token).then(
+        function(res) {
+            if(res.status == "complete")
+                alert("Payment success");
+        },
+        function(err) {
+
+        })
+    }
+
     self.qrScanner = function() {
         $cordovaBarcodeScanner.scan().then(
             function(data) {
-                $http.get('http://localhost:5000/transaction/'+data.id+'?token='+token).then(
-                function(res) {
-
-                },
-                function(err) {
-
-                })
+                self.transCheck(data, token);
+                alert
             },
             function(error) {
                 alert("Scanning failed: " + error);

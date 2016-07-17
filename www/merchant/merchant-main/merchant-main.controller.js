@@ -39,10 +39,6 @@
             $location.path('/merchant/info');
         }
 
-        function createPayment() {
-
-        }
-
         function logout() {
             Resources.destroyMerchantUserSession();
             $location.path('/login');

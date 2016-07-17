@@ -83,7 +83,18 @@ angular.module('myApp', [
             views: {
                 'menuContent': {
                     templateUrl: 'client/views/account.html',
-                    controller: 'clientAccountCtrl'
+                    controller: 'clientAccountCtrl',
+                    controllerAs: 'account'
+                }
+            }
+        })
+        .state('client.login', {
+            url: '/login',
+            views: {
+                'menuContent': {
+                    templateUrl: 'client/views/login.html',
+                    controller: 'clientLoginCtrl',
+                    controllerAs: 'login'
                 }
             }
         });

@@ -1,8 +1,14 @@
 <ion-modal-view class="login-bg">
-
+    <button ng-click="account.logout()" class="btn btn-primary navigation-button-padding">logout</button>
+    <!--<div ng-show="account.loader" class="loader"></div>-->
     <ion-content class="login">
 
-        <h3>account</h3>
+        <h3>Mobile payments:</h3>
+        <button ng-click="account.qrScanner()" class="btn btn-primary btn-block btn-large button-margin">
+            Scan QRCode and pay
+        </button>
+
+        token: {{account.value}}
 
     </ion-content>
 
